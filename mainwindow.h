@@ -40,8 +40,12 @@ private slots:
 
     void on_action_exit_triggered();
 
+    void on_textEdit_textChanged();
+
 private:
     Ui::MainWindow *ui;
     QString directory_path = "C:\\";
+    QString path_file = "";
+    bool no_change=true;
 };
 #endif // MAINWINDOW_H
