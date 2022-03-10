@@ -80,40 +80,64 @@
    <property name="text">
     <string>Новый</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
   </action>
   <action name="action_openfile">
    <property name="text">
     <string>Открыть</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
    </property>
   </action>
   <action name="action_savefile">
    <property name="text">
     <string>Сохранить</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
   </action>
   <action name="action_savefileas">
    <property name="text">
     <string>Сохранить как</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
    </property>
   </action>
   <action name="action_zoomin">
    <property name="text">
     <string>Увеличить шрифт</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+=</string>
+   </property>
   </action>
   <action name="action_zoomout">
    <property name="text">
     <string>Уменьшить шрифт</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
    </property>
   </action>
   <action name="action_reset">
    <property name="text">
     <string>Сбросить</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+0</string>
+   </property>
   </action>
   <action name="action_newwindow">
    <property name="text">
     <string>Новое окно</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+N</string>
    </property>
   </action>
   <action name="action_exit">
