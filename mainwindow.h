@@ -44,8 +44,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    QString directory_path = "C:\\";
-    QString path_file = "";
-    bool no_change=true;
+    QString directory_path = "C:\\"; // дефолтный путь где искать файл
+    QString path_file = ""; //текущий путь выбранного файла
+    bool no_change=true;// флаг регулирующий программные и ручные изменения textEdit
 };
 #endif // MAINWINDOW_H
