@@ -257,7 +257,6 @@ bool MainWindow::on_action_savefileas_triggered() // сохранение фай
 
 void MainWindow::on_action_openfile_triggered() // открытие файла
 {
-    no_change = false;
     QString file_dir;//имя файла
     //имя файла
     // случай если файл существует в системе
