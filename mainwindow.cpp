@@ -457,14 +457,11 @@ void MainWindow::on_action_fontedit_triggered()//настройка шрифта
     bool check;
     QFont font = QFontDialog::getFont(&check,this); //получаем параметры шрифта
     if (check) ui->textEdit->setFont(font); //устанавливаем выбранные параметры шрифту
-    else return;
 }
 
 void MainWindow::on_action_reset_triggered() // сброс шрифта
 {
     QFont font;
-    //задаем шрифту параметры по умолчанию
-    font.setFamily(font.defaultFamily());
     //присваиваем textEdit новый defaultный шрифт
     ui->textEdit->setFont(font);
 }
