@@ -68,6 +68,7 @@
     <property name="title">
      <string>Вид</string>
     </property>
+    <addaction name="action_fontedit"/>
     <addaction name="action_zoomin"/>
     <addaction name="action_zoomout"/>
     <addaction name="action_reset"/>
@@ -143,6 +144,11 @@
   <action name="action_exit">
    <property name="text">
     <string>Выход</string>
+   </property>
+  </action>
+  <action name="action_fontedit">
+   <property name="text">
+    <string>Настройка шрифта</string>
    </property>
   </action>
  </widget>

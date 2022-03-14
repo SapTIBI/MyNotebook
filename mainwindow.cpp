@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QAbstractButton>
 #include <QPushButton>
+#include <QFontDialog>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -551,5 +552,14 @@ void MainWindow::on_textEdit_textChanged()
     }
 
 
+}
+
+//настройка шрифта
+void MainWindow::on_action_fontedit_triggered()
+{
+    bool check;
+    QFont font = QFontDialog::getFont(&check,this); //получаем параметры шрифта
+    if (check) ui->textEdit->setFont(font); //устанавливаем выбранные параметры шрифту
+    else return;
 }
 
