@@ -30,10 +30,6 @@ private slots:
 
     bool on_action_savefile_triggered();
 
-    void on_action_zoomin_triggered();
-
-    void on_action_zoomout_triggered();
-
     void on_action_reset_triggered();
 
     void on_action_newwindow_triggered();

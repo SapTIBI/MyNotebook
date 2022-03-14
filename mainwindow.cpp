@@ -452,42 +452,20 @@ void MainWindow::on_action_openfile_triggered() // открытие файла
 
 }
 
-
-
-
-void MainWindow::on_action_zoomin_triggered() //увеличение масштаба текста
+void MainWindow::on_action_fontedit_triggered()//настройка шрифта
 {
-    // получаем текущий шрифт у textEdit
-    QFont font = ui->textEdit->font();
-    // получаем текущий размер шрифта у textEdit
-    int size = font.pointSize();
-    // устанавливаем новый размер шрифта у textEdit
-    font.setPointSize(size + 15);
-    // присваиваем textEdit новый измененный шрифт
-    ui->textEdit->setFont(font);
+    bool check;
+    QFont font = QFontDialog::getFont(&check,this); //получаем параметры шрифта
+    if (check) ui->textEdit->setFont(font); //устанавливаем выбранные параметры шрифту
+    else return;
 }
-
-
-void MainWindow::on_action_zoomout_triggered()//уменьшение масштаба текста
-{
-    // получаем текущий шрифт у textEdit
-    QFont font = ui->textEdit->font();
-    // получаем текущий размер шрифта у textEdit
-    int size = font.pointSize();
-    // устанавливаем новый размер шрифта у textEdit
-    font.setPointSize(size - 15);
-    // присваиваем textEdit новый измененный шрифт
-    ui->textEdit->setFont(font);
-}
-
 
 void MainWindow::on_action_reset_triggered() // сброс шрифта
 {
-    // получаем текущий шрифт у textEdit
-    QFont font = ui->textEdit->font();
-    // устанавливаем новый размер шрифта (размер по умолчанию) у textEdit
-    font.setPointSize(9);
-    // присваиваем textEdit новый измененный шрифт
+    QFont font;
+    //задаем шрифту параметры по умолчанию
+    font.setFamily(font.defaultFamily());
+    //присваиваем textEdit новый defaultный шрифт
     ui->textEdit->setFont(font);
 }
 
@@ -506,19 +484,13 @@ void MainWindow::on_textEdit_textChanged()
 {   //no_change = true - изменения в textEdit были сделаны вручную
     if (no_change){
         //если мы работаем с файлом "Безымянный"
-        if (path_file == "") {
+        if (path_file.isEmpty()) {
             //проверка на отсутствие изменений в файле "Безымянный"
-            if (ui->textEdit->toPlainText().isEmpty()) {
+            if (ui->textEdit->toPlainText().isEmpty())
                 this->setWindowTitle("Безымянный - Блокнот");
-                path_file = "";
-            }
-            else {
+            else
                 //файл "Безымянный" был изменен - к тайтлу файла приписываем "*"
-                QString modtitle = this->windowTitle();
-                if (!modtitle.contains("*")){
-                    this->setWindowTitle("*" + modtitle);
-                }
-            }
+                this->setWindowTitle("*Безымянный - Блокнот");
         }
         else {
             QFile file;
@@ -532,11 +504,8 @@ void MainWindow::on_textEdit_textChanged()
             file.close();
             //проверка на то, что файл изменен - нужно добавить "*" в тайтле пути
             if (QString::fromUtf8(ba) != ui->textEdit->toPlainText()) {
-
                 QString modtitle = this->windowTitle();
-                if (!modtitle.contains("*")){
-                    this->setWindowTitle("*" + modtitle);
-                }
+                if (!modtitle.contains("*")) this->setWindowTitle("*" + modtitle);
             }
             // в ином случае тайтл файла без "*"
             else {
@@ -554,12 +523,4 @@ void MainWindow::on_textEdit_textChanged()
 
 }
 
-//настройка шрифта
-void MainWindow::on_action_fontedit_triggered()
-{
-    bool check;
-    QFont font = QFontDialog::getFont(&check,this); //получаем параметры шрифта
-    if (check) ui->textEdit->setFont(font); //устанавливаем выбранные параметры шрифту
-    else return;
-}
 
