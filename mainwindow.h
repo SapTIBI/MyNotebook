@@ -42,6 +42,8 @@ private slots:
 
     void on_textEdit_textChanged();
 
+    void on_action_fontedit_triggered();
+
 private:
     Ui::MainWindow *ui;
     QString directory_path = "C:\\"; // дефолтный путь где искать файл
