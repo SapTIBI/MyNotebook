@@ -69,8 +69,6 @@
      <string>Вид</string>
     </property>
     <addaction name="action_fontedit"/>
-    <addaction name="action_zoomin"/>
-    <addaction name="action_zoomout"/>
     <addaction name="action_reset"/>
    </widget>
    <addaction name="menu"/>
@@ -109,25 +107,9 @@
     <string>Ctrl+Shift+S</string>
    </property>
   </action>
-  <action name="action_zoomin">
-   <property name="text">
-    <string>Увеличить шрифт</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+=</string>
-   </property>
-  </action>
-  <action name="action_zoomout">
-   <property name="text">
-    <string>Уменьшить шрифт</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+-</string>
-   </property>
-  </action>
   <action name="action_reset">
    <property name="text">
-    <string>Сбросить</string>
+    <string>Сбросить шрифт</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+0</string>
@@ -148,7 +130,10 @@
   </action>
   <action name="action_fontedit">
    <property name="text">
-    <string>Настройка шрифта</string>
+    <string>Настроить шрифт</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
    </property>
   </action>
  </widget>
