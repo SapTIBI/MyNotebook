@@ -456,14 +456,30 @@ void MainWindow::on_action_fontedit_triggered()//настройка шрифта
 {
     bool check;
     QFont font = QFontDialog::getFont(&check,this); //получаем параметры шрифта
-    if (check) ui->textEdit->setFont(font); //устанавливаем выбранные параметры шрифту
+    if (check) {
+        QTextCursor cursor(ui->textEdit->textCursor());
+        QTextCharFormat Format = cursor.charFormat();
+        Format.setFont(font);
+        cursor.setCharFormat(Format);
+        ui->textEdit->setTextCursor(cursor);
+    }
+    return;
+
+
+
 }
 
 void MainWindow::on_action_reset_triggered() // сброс шрифта
 {
     QFont font;
+    if (ui->textEdit->textCursor().selectedText().isEmpty()) {
+        ui->textEdit->selectAll();
+    }
     //присваиваем textEdit новый defaultный шрифт
-    ui->textEdit->setFont(font);
+    ui->textEdit->setCurrentFont(font);
+    QTextCursor cursor = ui->textEdit->textCursor();
+    cursor.clearSelection();
+    ui->textEdit->setTextCursor(cursor);
 }
 
 
