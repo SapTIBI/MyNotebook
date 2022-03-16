@@ -185,6 +185,7 @@ void MainWindow::on_action_newfile_triggered() // создание нового 
             //проверка на то, что операция сохранения прошла и вернула true
             if (on_action_savefile_triggered()){
                 MainWindow::setWindowTitle("Безымянный - Блокнот");
+                path_file = "";
                 ui->textEdit->clear();
             }
             no_change = true;// textEdit начинает обрабатывать изменения - изменения происходят вручную(пользователем)
