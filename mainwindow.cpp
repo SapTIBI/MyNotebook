@@ -53,18 +53,21 @@ void MainWindow::closeEvent(QCloseEvent *event) //обработка сигна�
                     msgBox.close();
                     event->accept();
                 }
+                delete yesbtn;
                 return;
             }
             //пользователь выбрал не сохранять данные
             else if (msgBox.clickedButton() == nobtn) {
                 msgBox.close();
                 event->accept();
+                delete  nobtn;
                 return;
             }
             //пользователь отменяет операцию
             else if (msgBox.clickedButton() == cancelbtn) {
                 msgBox.close();
                 event->ignore();
+                delete cancelbtn;
                 return;
             }
 
@@ -82,6 +85,7 @@ void MainWindow::closeEvent(QCloseEvent *event) //обработка сигна�
         msgBox.exec();
         //пользователь выбрал сохранить данные
         if (msgBox.clickedButton() == yesbtn) {
+            delete yesbtn;
             //проверка на то, что операция сохранения прошла и вернула true
             if (on_action_savefile_triggered()) {
                 event->accept();
@@ -96,12 +100,14 @@ void MainWindow::closeEvent(QCloseEvent *event) //обработка сигна�
         else if (msgBox.clickedButton() == nobtn) {
             msgBox.close();
             event->accept();
+            delete nobtn;
             return;
         }
         //пользователь отменяет операцию
         else if (msgBox.clickedButton() == cancelbtn) {
             msgBox.close();
             event->ignore();
+            delete cancelbtn;
             return;
         }
     }
@@ -150,6 +156,7 @@ void MainWindow::on_action_newfile_triggered() // создание нового 
                 }
                 no_change = true;
                 msgBox.close();
+                delete yesbtn;
                 return;
             }
             //пользователь выбрал не сохранять данные
@@ -160,11 +167,13 @@ void MainWindow::on_action_newfile_triggered() // создание нового 
                 MainWindow::setWindowTitle("Безымянный - Блокнот");
                 ui->textEdit->clear();
                 no_change = true;
+                delete nobtn;
                 return;
             }
             //пользователь отменяет операцию
             else if (msgBox.clickedButton() == cancelbtn) {
                 msgBox.close();
+                delete cancelbtn;
                 return;
             }
 
@@ -190,6 +199,7 @@ void MainWindow::on_action_newfile_triggered() // создание нового 
             }
             no_change = true;// textEdit начинает обрабатывать изменения - изменения происходят вручную(пользователем)
             msgBox.close();
+            delete yesbtn;
             return;
         }
         //пользователь выбрал не сохранять данные
@@ -200,11 +210,13 @@ void MainWindow::on_action_newfile_triggered() // создание нового 
             path_file = "";
             ui->textEdit->clear();
             no_change = true;// textEdit начинает обрабатывать изменения - изменения происходят вручную(пользователем)
+            delete nobtn;
             return;
         }
         //пользователь отменяет операцию
         else if (msgBox.clickedButton() == cancelbtn) {
             msgBox.close();
+            delete cancelbtn;
             return;
         }
 
@@ -314,6 +326,7 @@ void MainWindow::on_action_openfile_triggered() // открытие файла
                 on_action_savefile_triggered();//сохраняем текущие данные
                 on_action_openfile_triggered();//открываем файл
                 msgBox.close(); // скрываем окно с предупреждением(выбором)
+                delete yesbtn;
                 return;
             }
             //пользователь выбрал не сохранять данные
@@ -341,11 +354,13 @@ void MainWindow::on_action_openfile_triggered() // открытие файла
                     no_change = true;// textEdit начинает обрабатывать изменения - изменения происходят вручную(пользователем)
                 }
                 msgBox.close();// скрываем окно с предупреждением(выбором)
+                delete nobtn;
                 return;
             }
             //пользователь отменяет операцию
             else if (msgBox.clickedButton() == cancelbtn) {
                 msgBox.close();// скрываем окно с предупреждением(выбором)
+                delete cancelbtn;
                 return;
             }
         }
@@ -388,6 +403,7 @@ void MainWindow::on_action_openfile_triggered() // открытие файла
                 }
             }
             msgBox.close();
+            delete yesbtn;
             return;
         }
         //пользователь выбрал не сохранять данные
@@ -415,11 +431,13 @@ void MainWindow::on_action_openfile_triggered() // открытие файла
                 no_change = true;// textEdit начинает обрабатывать изменения - изменения происходят вручную(пользователем)
             }
             msgBox.close();// скрываем окно с предупреждением(выбором)
+            delete nobtn;
             return;
         }
         //пользователь отменяет операцию
         else if (msgBox.clickedButton() == cancelbtn) {
             msgBox.close();// скрываем окно с предупреждением(выбором)
+            delete cancelbtn;
             return;
         }
     }
